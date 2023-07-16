@@ -101,10 +101,11 @@ router.post('/checkin', upload.single('video'), fetchUser, async (req, res) => {
 
                         childPython.stdout.on('data', async (data) => {
 
+                            console.log(data.toString())
+
                             if (data.toString().slice(0, 4) == 'True') {
 
-                                console.log(data)
-                                
+
                                 validateAppointment.isChecked = true
                                 await validateAppointment.save()
 
