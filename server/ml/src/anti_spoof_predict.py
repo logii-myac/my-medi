@@ -27,8 +27,8 @@ MODEL_MAPPING = {
 
 class Detection:
     def __init__(self):
-        caffemodel = "root/my-medi/server/ml/resources/detection_model/Widerface-RetinaFace.caffemodel"
-        deploy = "root/my-medi/server/ml/resources/detection_model/deploy.prototxt"
+        caffemodel = "/root/my-medi/server/ml/resources/detection_model/Widerface-RetinaFace.caffemodel"
+        deploy = "/root/my-medi/server/ml/resources/detection_model/deploy.prototxt"
         self.detector = cv2.dnn.readNetFromCaffe(deploy, caffemodel)
         self.detector_confidence = 0.6
 
