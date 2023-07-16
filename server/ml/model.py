@@ -55,12 +55,13 @@ def test(image):
 
 def verify_face():
     try:
-        print("try")
+        
         user_id=sys.argv[1]
         root="root/my-medi/server"
         image1=root+"/checkinFrames/"+user_id+"/frame-1.png"
         image2=root+"/frames/"+user_id+"/frame-1.png"
         if test(cv2.imread(image1))==1 or test(cv2.imread(image2))==1:
+            print("matching face")
             result = DeepFace.verify(image1,image2)
             print(result["verified"])
         else:
