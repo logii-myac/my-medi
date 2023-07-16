@@ -1,0 +1,6 @@
+easydict==1.10
+tqdm==4.65.0
+tensorboardX==2.6.1
+// numpy==1.25.1
+// opencv-python==4.8.0.74
+// deepface==0.0.79
