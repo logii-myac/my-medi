@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import SideNavAdmin from '../../components/SideNavAdmin'
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ADMIN_AUTH_TOKEN, SERVER_URL } from './../../services/helper';
+import { SERVER_URL } from './../../services/helper';
 import MainContext from './../../context/MainContext';
 
 const Doctor = (props) => {
@@ -16,7 +16,7 @@ const Doctor = (props) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'admin-auth-token': ADMIN_AUTH_TOKEN
+                'admin-auth-token': localStorage.getItem('admin-auth-token')
             },
             body: JSON.stringify({ id: _id })
         })
@@ -66,7 +66,7 @@ const AdminHome = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'admin-auth-token': ADMIN_AUTH_TOKEN
+                'admin-auth-token': localStorage.getItem('admin-auth-token')
             },
             body: JSON.stringify(data)
         })

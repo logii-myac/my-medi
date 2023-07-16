@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import MainContext from './MainContext'
-import { ADMIN_AUTH_TOKEN, SERVER_URL} from '../services/helper'
+import { SERVER_URL} from '../services/helper'
 
 const MainState = (props) => {
 
@@ -12,7 +12,7 @@ const MainState = (props) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'admin-auth-token': ADMIN_AUTH_TOKEN
+                'admin-auth-token': localStorage.getItem('admin-auth-token')
             }
         })
             .then(res => res.json())

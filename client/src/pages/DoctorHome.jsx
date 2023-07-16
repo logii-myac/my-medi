@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SidebarDoctor from '../components/SidebarDoctor'
-import { DR_AUTH_TOKEN, SERVER_URL } from '../services/helper'
+import { SERVER_URL } from '../services/helper'
 
 const DoctorAppointment = (props) => {
 
@@ -18,7 +18,7 @@ const DoctorAppointment = (props) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'doctor-auth-token': DR_AUTH_TOKEN
+                'doctor-auth-token': localStorage.getItem('doctor-auth-token')
             },
             body: JSON.stringify({ timeAssinged: time, status: 'confirmed', appointmentID: _id })
         })
@@ -39,7 +39,7 @@ const DoctorAppointment = (props) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'doctor-auth-token': DR_AUTH_TOKEN
+                'doctor-auth-token': localStorage.getItem('doctor-auth-token')
             },
             body: JSON.stringify({ status: 'complete', appointmentID: _id })
         })
@@ -62,7 +62,7 @@ const DoctorAppointment = (props) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'doctor-auth-token': DR_AUTH_TOKEN
+                'doctor-auth-token': localStorage.getItem('doctor-auth-token')
             }
         })
             .then(res => res.json())
@@ -159,7 +159,7 @@ const DoctorHome = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'doctor-auth-token': DR_AUTH_TOKEN
+                'doctor-auth-token': localStorage.getItem('doctor-auth-token')
             }
         })
             .then(res => res.json())
