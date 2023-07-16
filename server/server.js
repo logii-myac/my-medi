@@ -11,7 +11,7 @@ const PORT = env.port;
 connectToMongo()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({ origin: '*' }))
 
 app.use('/api/admin', require('./Routes/manageAdmin'))
 app.use('/api/user', require('./Routes/manageUser'))
