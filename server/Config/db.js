@@ -8,6 +8,7 @@ const mongoURI = env.mongoURI
 
 const connectToMongo = async () => {
 
+
     try {
 
         await mongoose.connect(mongoURI)
