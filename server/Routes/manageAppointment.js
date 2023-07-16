@@ -97,7 +97,7 @@ router.post('/checkin', upload.single('video'), fetchUser, async (req, res) => {
                     .on('end', () => {
 
 
-                        const childPython = spawn('python', ['../server/ml/model.py', userID])
+                        const childPython = spawn('python3', ['../server/ml/model.py', userID])
 
                         childPython.stdout.on('data', async (data) => {
 

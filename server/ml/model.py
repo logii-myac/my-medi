@@ -30,7 +30,7 @@ def test(image):
     image_bbox = model_test.get_bbox(image)
     prediction = np.zeros((1, 3))
     # sum the prediction from single model's result
-    model_dir="E:/Paid Projects/face-detection/server/ml/resources/anti_spoof_models"
+    model_dir="root/my-medi/server/ml/resources/anti_spoof_models"
     for model_name in os.listdir(model_dir):
         h_input, w_input, model_type, scale = parse_model_name(model_name)
         param = {
@@ -56,17 +56,17 @@ def test(image):
 def verify_face():
     try:
         user_id=sys.argv[1]
-        root="E:/Paid Projects/face-detection/server"
+        root="root/my-medi/server"
         image1=root+"/checkinFrames/"+user_id+"/frame-1.png"
         image2=root+"/frames/"+user_id+"/frame-1.png"
         if test(cv2.imread(image1))==1 or test(cv2.imread(image2))==1:
             result = DeepFace.verify(image1,image2)
             print(result["verified"])
         else:
-            print("errr")
+            print("Face Match Failed")
 
     except:
-        print("errr")
+        print("Something Went Wrong")
 
     
 verify_face()
