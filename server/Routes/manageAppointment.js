@@ -75,7 +75,7 @@ router.post('/checkin', upload.single('video'), fetchUser, async (req, res) => {
         const videoDuration = 4;
 
         fs.writeFile(videoFilePath, buffer, (err) => {
-            
+
             if (err) {
                 console.error('Error saving video file:', err);
                 res.status(500).json({ error: 'Failed to save video file.' });
@@ -103,6 +103,8 @@ router.post('/checkin', upload.single('video'), fetchUser, async (req, res) => {
 
                             if (data.toString().slice(0, 4) == 'True') {
 
+                                console.log(data)
+                                
                                 validateAppointment.isChecked = true
                                 await validateAppointment.save()
 
